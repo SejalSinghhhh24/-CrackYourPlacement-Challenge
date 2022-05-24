@@ -29,12 +29,16 @@ CODE:
 class Solution {
     public int maxProfit(int[] prices) {
         int m=0;
+        int p=0;
+        int l=Integer.MAX_VALUE;
         for(int i=0;i<prices.length;i++){
-            for ( int j=i+1;j<prices.length;j++){
-                int p=prices[j]-prices[i];
+          if(prices[i]<l){
+            l=prices[i];
+          }
+                 p=prices[i]-l;
                 if(p>m){
                     m=p;
-                }
+                
             }
         }
         return m;
